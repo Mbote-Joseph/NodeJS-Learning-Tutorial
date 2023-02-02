@@ -1,9 +1,16 @@
 const express = require("express");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
+const Blog = require("./models/blogs");
 
 // Connect to mongodb server
 const dbURL =
-  "mongodb+srv://Mbote:sct211-0011/2018@cluster0.q1hpyda.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://Mbote:test123@cluster0.q1hpyda.mongodb.net/?retryWrites=true&w=majority";
+
+mongoose
+  .connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then((result) => console.log("Connected to mongodb server"))
+  .catch((error) => console.log("Error connecting"));
 
 // Express app
 const app = express();
@@ -28,6 +35,23 @@ app.listen(3000);
 //   next();
 // });
 app.use(morgan("dev"));
+
+// mongoose and mongo sandbox route
+app.get("/add-blog", (req, res) => {
+  const blog = new Blog({
+    title: "new blog",
+    snippet: "This is a new blog",
+    body: "This is a new blog body",
+  });
+  blog
+    .save()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 // Static files
 app.use(express.static("public"));
