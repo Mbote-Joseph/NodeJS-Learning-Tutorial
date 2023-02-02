@@ -1,0 +1,30 @@
+.card {
+  background-color: #f9f9f9;
+  box-shadow: 3px 3px 3px 3px #ee7e63;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 70%;
+  padding: 20px;
+}
+a {
+  text-decoration: none;
+  color: #f9f9f9;
+}
+button {
+  background-color: #ee7e63;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 3px 3px #ee7e63;
+  border: #ee7e63;
+}
+form {
+  margin-left: 40%;
+  margin-right: auto;
+}
+input {
+  min-width: 400px;
+  height: 30px;
+  border: 1px solid #ee7e63;
+  border-radius: 5px;
+}

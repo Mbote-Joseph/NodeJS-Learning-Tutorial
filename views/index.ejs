@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs') %>
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <h1>Node JS Learning</h1>
+    <h2>EJS Engine</h2>
+    <p>The Node JS Learning from Net Ninja</p>
+
+    <% if(blogs.length >0) {%> <% blogs.map(blog => { %>
+    <div class="card">
+      <h3 class="title"><%= blog.title %></h3>
+      <p class="snippet"><%= blog.snippet %></p>
+    </div>
+    <% }) %> <% }else{%>
+    <h2>No Blogs to display</h2>
+
+    <% }%> <%- include('./partials/footer.ejs') %>
+  </body>
+</html>
